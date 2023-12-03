@@ -5,15 +5,20 @@ const app = express();
 
 const noteData = require(`../db/db.json`)
 
+// app.use(express.urlencoded({ extended: true }));
+
+
 app.get('/api/notes', (req, res) => {
-//read data from the db.json, return it in the response object
- res.write(JSON.stringify(noteData))
+  //read data from the db.json, return it in the response object
+  res.send((noteData))
 });
 
 app.post('/api/notes', (req, res) => {
-    //write to the db.json file
+  //write to the db.json file
+  
+});
 
-  });
+app.use(express.static('../public'));
 
 app.get('/notes', (req, res) => {
   //read data from the db.json, return it in the response object
@@ -22,7 +27,7 @@ app.get('/notes', (req, res) => {
 });
 app.get('*', (req, res) => {
   //read data from the db.json, return it in the response object
-  res.sendFile(path.join(__dirname, '../public/index.html'))  ;
+  res.sendFile(path.join(__dirname, 'index.html'))  ;
   
   });
 
