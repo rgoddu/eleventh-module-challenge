@@ -3,9 +3,10 @@ const path = require("path")
 const PORT = 3001;
 const app = express();
 
+const fs = require('fs');
+
 const noteData = require(`../db/db.json`)
 
-// app.use(express.urlencoded({ extended: true }));
 
 
 app.get('/api/notes', (req, res) => {
